@@ -319,14 +319,16 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
+}
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
     let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
+    if (selectValue) selectValue.innerText = this.innerText;
+    if (select) elementToggleFunc(select);
     filterFunc(selectedValue);
   });
 }
@@ -352,10 +354,10 @@ let lastClickedBtn = filterBtn[0];
 for (let i = 0; i < filterBtn.length; i++) {
   filterBtn[i].addEventListener("click", function () {
     let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
+    if (selectValue) selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
 
-    lastClickedBtn.classList.remove("active");
+    if (lastClickedBtn) lastClickedBtn.classList.remove("active");
     this.classList.add("active");
     lastClickedBtn = this;
   });
@@ -370,10 +372,12 @@ const formBtn = document.querySelector("[data-form-btn]");
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
     // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+    if (form && formBtn) {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
+      } else {
+        formBtn.setAttribute("disabled", "");
+      }
     }
   });
 }
@@ -385,16 +389,96 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
+    // Remove active class from all pages and buttons first
+    for (let j = 0; j < pages.length; j++) {
+      pages[j].classList.remove("active");
+    }
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.remove("active");
+    }
+
+    // Add active class to matching page and button
+    for (let j = 0; j < pages.length; j++) {
+      if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
+        pages[j].classList.add("active");
+        this.classList.add("active");
         window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
       }
     }
   });
 }
+
+// Experience dropdown functionality
+const expToggleBtns = document.querySelectorAll("[data-exp-toggle]");
+
+expToggleBtns.forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    const expContent = this.closest(".timeline-item").querySelector(".exp-content");
+
+    // Toggle the content visibility
+    if (expContent.classList.contains("collapsed")) {
+      expContent.classList.remove("collapsed");
+      this.classList.add("active");
+    } else {
+      expContent.classList.add("collapsed");
+      this.classList.remove("active");
+    }
+  });
+});
+
+// Portfolio Card Toggle Functionality
+const portfolioToggles = document.querySelectorAll("[data-portfolio-toggle]");
+
+portfolioToggles.forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const portfolioCard = this.closest(".portfolio-card");
+    const descriptionBox = portfolioCard.querySelector(".portfolio-card-description");
+
+    // Toggle the description visibility
+    if (descriptionBox.classList.contains("collapsed")) {
+      descriptionBox.classList.remove("collapsed");
+      this.classList.add("active");
+    } else {
+      descriptionBox.classList.add("collapsed");
+      this.classList.remove("active");
+    }
+  });
+});
+
+// Initialize all portfolio descriptions as collapsed
+const portfolioDescriptions = document.querySelectorAll(".portfolio-card-description");
+portfolioDescriptions.forEach(desc => {
+  desc.classList.add("collapsed");
+});
+
+// Initialize all experience sections as collapsed
+document.addEventListener("DOMContentLoaded", function () {
+  const expContents = document.querySelectorAll(".exp-content");
+  expContents.forEach(content => {
+    content.classList.add("collapsed");
+  });
+
+  // Skills Tab Functionality
+  const skillTabs = document.querySelectorAll(".skill-tab-btn");
+  const skillContents = document.querySelectorAll(".skills-content");
+
+  skillTabs.forEach(tab => {
+    tab.addEventListener("click", function () {
+      const tabName = this.getAttribute("data-skill-tab");
+
+      // Remove active class from all tabs and contents
+      skillTabs.forEach(t => t.classList.remove("active"));
+      skillContents.forEach(content => content.classList.remove("active"));
+
+      // Add active class to clicked tab and corresponding content
+      this.classList.add("active");
+      document.querySelector(`[data-skill-content="${tabName}"]`).classList.add("active");
+    });
+  });
+});
+
 
