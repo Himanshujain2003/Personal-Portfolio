@@ -507,9 +507,9 @@
             <div class="skill-category">
               <h4 class="category-title">💻 Frontend</h4>
               <ul class="skills-list">
-                <li class="skill-badge"><span class="badge-text">React.js</span><span class="badge-percent">92%</span>
+                <li class="skill-badge"><span class="badge-text">React.js</span><span class="badge-percent">82%</span>
                 </li>
-                <li class="skill-badge"><span class="badge-text">Angular</span><span class="badge-percent">82%</span>
+                <li class="skill-badge"><span class="badge-text">Angular</span><span class="badge-percent">70%</span>
                 </li>
                 <li class="skill-badge"><span class="badge-text">JavaScript ES6+</span><span
                     class="badge-percent">94%</span></li>
@@ -585,117 +585,97 @@
           <h2 class="h2 article-title">Portfolio</h2>
         </header>
 
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>Projects</button>
-            </li>
-
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-
-
-            </ul>
-
+        <!-- Web Development & Full-Stack Projects -->
+        <section class="portfolio-category-section">
+          <div class="portfolio-category-header">
+            <h3 class="portfolio-category-title">💻 Web Development & Full-Stack</h3>
+            <p class="portfolio-category-description">Modern responsive applications with cutting-edge technologies</p>
           </div>
 
-          <ul class="project-list">
+          <ul class="portfolio-grid">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="portfolio-card">
               <a href="https://github.com/Himanshujain2003/Sunilam_traders.git">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+                <figure class="portfolio-card-img">
+                  <div class="portfolio-card-overlay">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="assets/images/sunilam.png" alt="finance" loading="lazy">
+                  <img src="assets/images/sunilam.png" alt="Sunilam Traders" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Sunilam Traders – Stock & Order Management System</h3>
-
-                <p class="project-category">Web Development/ Data Analysis
-                </p>
-
+                <div class="portfolio-card-content">
+                  <h4 class="portfolio-card-title">Sunilam Traders</h4>
+                  <p class="portfolio-card-subtitle">Stock & Order Management System</p>
+                  <p class="portfolio-card-tech">React • Node.js • MongoDB</p>
+                </div>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="portfolio-card">
               <a href="https://github.com/Himanshujain2003/-Doctor-Appointment-Booking-Web-Application.git">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+                <figure class="portfolio-card-img">
+                  <div class="portfolio-card-overlay">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="assets/images/doctor.png" alt="Mr.Merchant" loading="lazy">
+                  <img src="assets/images/doctor.png" alt="Doctor Appointment" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Doctor Appointment Booking </h3>
-
-                <p class="project-category">Web Development</p>
-
+                <div class="portfolio-card-content">
+                  <h4 class="portfolio-card-title">Doctor Appointment Booking</h4>
+                  <p class="portfolio-card-subtitle">Healthcare Management Platform</p>
+                  <p class="portfolio-card-tech">React • Express • MySQL</p>
+                </div>
               </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://github.com/Himanshujain2003/Heart_disease.git">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="assets/images/heart.png" alt="Mr.Merchant" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Heart Disease </h3>
-
-                <p class="project-category">Data Science</p>
-
-              </a>
-            </li>
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://github.com/Himanshujain2003/PowerBi.git">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="assets/images/E-Sales.png" alt="Mr.Merchant" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">E-Sales </h3>
-
-                <p class="project-category">Power BI</p>
-
-              </a>
-            </li>
-
-
-
             </li>
 
           </ul>
+        </section>
 
+        <!-- Data Science & Analytics Projects -->
+        <section class="portfolio-category-section">
+          <div class="portfolio-category-header">
+            <h3 class="portfolio-category-title">📊 Data Science & Analytics</h3>
+            <p class="portfolio-category-description">Predictive models and interactive dashboards for business
+              intelligence</p>
+          </div>
+
+          <ul class="portfolio-grid">
+
+            <li class="portfolio-card">
+              <a href="https://github.com/Himanshujain2003/Heart_disease.git">
+                <figure class="portfolio-card-img">
+                  <div class="portfolio-card-overlay">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="assets/images/heart.png" alt="Heart Disease" loading="lazy">
+                </figure>
+
+                <div class="portfolio-card-content">
+                  <h4 class="portfolio-card-title">Heart Disease Prediction</h4>
+                  <p class="portfolio-card-subtitle">ML Classification Model</p>
+                  <p class="portfolio-card-tech">Python • Scikit-Learn • Pandas</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="portfolio-card">
+              <a href="https://github.com/Himanshujain2003/PowerBi.git">
+                <figure class="portfolio-card-img">
+                  <div class="portfolio-card-overlay">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="assets/images/E-Sales.png" alt="E-Sales Dashboard" loading="lazy">
+                </figure>
+
+                <div class="portfolio-card-content">
+                  <h4 class="portfolio-card-title">E-Sales Analytics</h4>
+                  <p class="portfolio-card-subtitle">Interactive Power BI Dashboard</p>
+                  <p class="portfolio-card-tech">Power BI • SQL • Excel</p>
+                </div>
+              </a>
+            </li>
+
+          </ul>
         </section>
 
       </article>
